@@ -1,0 +1,172 @@
+---
+title: "Introduction to R - Quiz and Exercises"
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    df_print: default
+runtime: shiny_prerendered
+description: >
+  Learn about the basic syntax of R.
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+
+data("airquality")
+
+airquality$Month<-factor(airquality$Month,levels=5:9,labels=c("May","June","July","August","September"))
+
+tutorial_options(exercise.timelimit = 60)
+```
+
+## Quiz
+
+*Question 1*
+```{r Q1, echo=FALSE}
+question("Which of the following is the definition of an object in R",
+  answer("An object is a structure which could contain values, data or plots",correct=TRUE),
+  answer("An object is a statement used to perform a particular task",message = "This is a 'function'"),
+  answer("An object provides the commands used in R",message = "This is a 'script' or the 'syntax'"),
+         allow_retry=TRUE)
+
+```
+
+
+
+*Question 2*
+
+```{r Q2, echo=FALSE}
+question("Select all of the following which could be a valid object name for some data about earthquakes in R",
+  answer("EarthquakeData",correct = TRUE),
+   answer("earthquakedata",correct = TRUE),
+  answer("Earthquake Data",message="No spaces allowed."),
+  answer("uRtHkWaKeS",correct = TRUE,message="Just because something is valid, does not mean it is a good idea!"),
+  answer("2020earthquakes",message="Cannot start with a number."),
+  answer("2020_earthquakes",message="Cannot start with a number"),
+  answer("Earthquakes_2020",correct = TRUE),
+  answer("d1",correct = TRUE),
+         allow_retry=TRUE)
+
+```
+
+
+*Question 3*
+```{r Q31, echo=FALSE}
+question("Which of the following statements is correct",
+  answer("Data in R cannot contain any missing values"),
+  answer("You cannot calculate the mean of a variable containing missing values in R"),
+  answer("Missing values in R are coded as -99",message="Missing values are coded as NA"),
+  answer("The na.rm=TRUE argument is one way of handling missing values within some functions",correct = TRUE),
+         allow_retry=TRUE)
+
+```
+
+
+
+
+
+There is a dataset in built into R called `quakes`. This data shows the latitude, longitude, depth, magnitude of earthquakes occuring in the ocean around Fiji since 1964, as well as the number of different stations reporting the earthquake.
+
+```{r,echo=FALSE}
+DT::datatable(quakes)
+```
+
+*Question 4*
+
+```{r Q3, echo=FALSE}
+question("If I wanted to see just the magnitude values of this data, what R command should I run?",
+   answer("quakes[mag]",message="Square brackets are important in R; but we haven't learnt about them yet, and this is not what they do!"),
+   answer("quakes$mag",correct = TRUE),
+  answer("column(quakes,mag)",message = "We have not learnt about a function called column(), and this is not what it does"),
+  answer("mag(quakes)",message="There is no function called mag()"),
+         allow_retry=TRUE)
+         
+         
+```
+*Question 5* 
+
+```{r,echo=FALSE}
+summary(quakes)
+```
+
+
+ 
+```{r Q4, echo=FALSE}
+
+question("Which command has given me the output shown above?",
+   answer("c(quakes)",message = "This would deconstruct the data frame rather than provide summary statistics"),
+   answer("mean(quakes)",message = "This would give an NA result. quakes is of class data.frame, so we cant calculate a mean"),
+  answer("summary(quakes)",correct = TRUE),
+  answer("stats(quakes)",message = "This is not a commonly used function"),
+         allow_retry=TRUE)
+```
+
+
+
+
+## Exercises
+
+### Question 1:
+I am trying to use R as a calculator, and am receiving an error. Can you spot my error and update the code?
+```{r ex1, exercise=TRUE}
+
+(42-5/(88+6)
+
+```
+
+
+### Question 2
+
+This question will use the same earthquakes dataset from the quiz, showing the magnitude of earthquakes occuring in the ocean around Fiji since 1964, as well as the number of different stations reporting the earthquake. This has been loaded into the R sessions as a data frame called `quakes` 
+
+```{r,echo=FALSE}
+DT::datatable(quakes)
+```
+
+
+### Question 2a
+Write a command to determine the largest magnitude (`mag`) earthquake recorded?
+
+```{r ex2, exercise=TRUE}
+
+
+```
+
+### Question 2b
+Write a command to determine the smallest depth (`depth`) below surface that an earthquake was recorded?
+
+```{r ex3, exercise=TRUE}
+
+```
+
+
+### Question 2c
+I would like to obtain the standard deviation of the earthquake magnitude column from the `quakes` dataset. See if you can find the function for standard deviation in R (we have not mentioned it in the course workbook so far) and then apply it to the relevant column
+```{r ex4, exercise=TRUE}
+
+```
+
+
+### Question 3
+I am a Physicist who is doing some equations involving projectile motion and want to write some code to save me some time. The formula for this is
+$Range = \frac{v^{2}} {g \times sin(2 \theta)}$
+
+Create objects called `v`,`g` and `theta` and set v equal to 5; g equal to 9.8 and theta equal to 45. Then write the code to calculate the range I would expect my object to be projected if initial velocity was 5$m/s$, the angle of projection was 45 degrees and we were on Earth, so the gravity was equal to 9.8$m/s^2$
+
+```{r projectilemotion, exercise=TRUE}
+
+
+```
+
+Now I want to see what happens when I modify the angle. Instead of a single number, replace theta with several numbers to see how the range varies - I am interested in seeing the results for angles of 30, 35, 40, 45 and 50 degrees.
+
+### Question 4:
+A task I am sure you remember from school is to solve a quadratic equation using the formula $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$.
+Write some R code to find the two values of x when $x^2-9x+19=0$ . As a reminder, in the quadratic equation formula from this particular example `a` would be 1; `b` would be -9 and `c` would be 19
+
+```{r quadratic, exercise=TRUE}
+
+
+
+```
