@@ -13,6 +13,7 @@ description: >
 ```{r setup, include=FALSE}
 library(learnr)
 library(datasets) 
+library(DT)
  
 data("airquality")
 
