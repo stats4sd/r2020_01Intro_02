@@ -152,20 +152,35 @@ I would like to obtain the standard deviation of the earthquake magnitude column
 
 ### Question 3
 I am a Physicist who is doing some equations involving projectile motion and want to write some code to save me some time. The formula for this is
-$Range = \frac{v^{2}} {g \times sin(2 \theta)}$
+$Range = \frac{v^{2}} {g} \times sin(2 \theta)$
 
-Create objects called `v`,`g` and `theta` and set v equal to 5; g equal to 9.8 and theta equal to 45. Then write the code to calculate the range I would expect my object to be projected if initial velocity was 5$m/s$, the angle of projection was 45 degrees and we were on Earth, so the gravity was equal to 9.8$m/s^2$
+Create objects called `v`,`g` and `theta` and set v equal to 5; g equal to 9.8 and theta equal to 45. 
+
+Then, you will need to write some code to convert an angle in degrees to an angle in radians, as trigonometric functions in R only operate in radians. So you will need to multiply theta by $ \frac{\pi} {180}$. Store this as an object called `theta_radian`.
+
+Then write the code to calculate the range I would expect my object to be projected if initial velocity was 5$m/s$, the angle of projection was 45 degrees and we were on Earth, so the gravity was equal to 9.8$m/s^2$
 
 ```{r projectilemotion, exercise=TRUE}
 
 
 ```
 
-Now I want to see what happens when I modify the angle. Instead of a single number, replace theta with several numbers to see how the range varies - I am interested in seeing the results for angles of 30, 35, 40, 45 and 50 degrees.
+### Question 3b
+
+Now I want to see what happens when I modify the angle. Instead of a single number, replace theta with several numbers to see how the range varies - I am interested in seeing the results for angles of 30, 35, 40, 45 and 50 degrees. Copy the code from 3a into this chunk, and then modify it as necessary.
+
+```{r projectilemotion2, exercise=TRUE}
+
+
+```
 
 ### Question 4:
 A task I am sure you remember from school is to solve a quadratic equation using the formula $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$.
-Write some R code to find the two values of x when $x^2-9x+19=0$ . As a reminder, in the quadratic equation formula from this particular example `a` would be 1; `b` would be -9 and `c` would be 19
+Write some R code to find the two values of x when $x^2-9x+19=0$ . 
+
+As a reminder, in the quadratic equation formula from this particular example `a` would be 1; `b` would be -9 and `c` would be 19
+
+Try to write this in a way such that R returns both solutions to the formula at the same time, you won't need to use any functions we haven't previously used to do this.
 
 ```{r quadratic, exercise=TRUE}
 
