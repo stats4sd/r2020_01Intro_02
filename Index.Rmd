@@ -156,7 +156,7 @@ $Range = \frac{v^{2}} {g} \times sin(2 \theta)$
 
 Create objects called `v`,`g` and `theta` and set v equal to 5; g equal to 9.8 and theta equal to 45. 
 
-Then, you will need to write some code to convert an angle in degrees to an angle in radians, as trigonometric functions in R only operate in radians. So you will need to multiply theta by $ \frac{\pi} {180}$. Store this as an object called `theta_radian`.
+Then, you will need to write some code to convert an angle in degrees to an angle in radians, as trigonometric functions in R only operate in radians. So you will need to multiply theta by $\frac{\pi} {180}$. Store this as an object called `theta_radian`.
 
 Then write the code to calculate the range I would expect my object to be projected if initial velocity was 5$m/s$, the angle of projection was 45 degrees and we were on Earth, so the gravity was equal to 9.8$m/s^2$
 
