@@ -1,18 +1,22 @@
-## Exercises
+## Module 1:  Exercises
 
 ### Question 1:
 I am trying to use R as a calculator, and am receiving an error. Can you spot my error and update the code?
-```{r ex1, exercise=TRUE}
+
 
 (42-5/(88+6)
 
-```
+
 
 ### Answer 1:
 
 My brackets are incorrectly specified as I open two sets of brackets but only close one.
-The correct solution is probably either `(42-5)/(88+6)` or `42-(5/(88+6))`, depending on what I actually wanted to do!
+The correct solution is probably either `(42-5)/(88+6)` or `42-(5/(88+6))`, depending on what I actually wanted to do
+The former is probably more likely!
 
+```{r}
+(42-5)/(88+6)
+```
 
 
 ### Question 2
@@ -27,7 +31,7 @@ Write a command to determine the largest magnitude (`mag`) earthquake recorded?
 
 I would need to use the `max` command, and then specify that i want to use the `mag` column within the `quakes` dataset by using the data frame name `quakes` followed by a `$` follwed by the column name `mag`
 
-```{r ex2}
+```{r}
 max(quakes$mag)
 
 ```
@@ -39,7 +43,7 @@ Write a command to determine the smallest depth (`depth`) below surface that an 
 
 I would need to use the `min` command, and then specify that i want to use the `depth` column within the `quakes` dataset by using the data frame name `quakes` followed by a `$` follwed by the column name `depth`
 
-```{r ex3}
+```{r}
 min(quakes$mag)
 ```
 
@@ -50,7 +54,7 @@ I would like to obtain the standard deviation of the earthquake magnitude column
 ### Answer 2c
 
 From a bit of searching, hopefully you found the `sd` function. This works in the same way as we have seen with `max` and `min`
-```{r ex4}
+```{r}
 sd(quakes$mag)
 ```
 
@@ -61,7 +65,7 @@ $Range = \frac{v^{2}} {g} \times sin(2 \theta)$
 
 Create objects called `v`,`g` and `theta` and set v equal to 5; g equal to 9.8 and theta equal to 45. 
 
-Then, you will need to write some code to convert an angle in degrees to an angle in radians, as trigonometric functions in R only operate in radians. So you will need to multiply theta by $ \frac{\pi} {180}$. Store this as an object called `theta_radian`. The constant $\pi$ exists already in R as a named object called `pi`.
+Then, you will need to write some code to convert an angle in degrees to an angle in radians, as trigonometric functions in R only operate in radians. So you will need to multiply theta by $\frac{\pi} {180}$. Store this as an object called `theta_radian`. The constant $\pi$ exists already in R as a named object called `pi`.
 
 Then write the code to calculate the range I would expect my object to be projected if initial velocity was 5$m/s$, the angle of projection was 45 degrees and we were on Earth, so the gravity was equal to 9.8$m/s^2$
 
@@ -74,7 +78,7 @@ Then write the transformation line to convert theta to radians.
 
 Then I can use these objects in the formula. Make sure you are careful with use of brackets. Remember to use the converted object `theta_radian` rather than the original object `theta`. Also remember that you will need to write `sin(2*theta_radian)` to multiple theta by 2. R will not be able to interpret `sin(2theta_radian)`
 
-```{r projectilemotion, exercise=TRUE}
+```{r}
 v<-5
 g<-9.8
 theta<-45
@@ -93,7 +97,7 @@ Now I want to see what happens when I modify the angle. Instead of a single numb
 
 We will use the `c()` to provide multiple angles to the theta object. We do not need to change any other part of the code other than theta.
 
-```{r projectilemotion2, exercise=TRUE}
+```{r}
 v<-5
 g<-9.8
 theta<-c(30,35,40,45,50)
@@ -122,7 +126,7 @@ Brackets are incredibly easy to get wrong on this one. Be extremely careful work
 As with question 3 - make sure to write `4*a*c` to multiply these together; R would not be able to interpret `4ac`.
 However R can interpet `-b` providing b is a number. If you wrote `-1*b` here though that would also be perfectly correct.
 
-```{r quadratic, exercise=TRUE}
+```{r}
 
 a<-1
 b<--9
